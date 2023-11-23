@@ -1,0 +1,33 @@
+def meters_to_feet(meters):
+    return meters * 3.28084
+
+def feet_to_meters(feet):
+    return feet / 3.28084
+
+def length_converter():
+    print("Welcome to the Length Converter!")
+
+    try:
+        value = float(input("Enter the length value: "))
+    except ValueError:
+        print("Invalid input. Please enter a numeric value.")
+        return
+
+    source_unit = input("Enter the source unit (M for meters, F for feet): ").upper()
+    target_unit = input("Enter the target unit (M for meters, F for feet): ").upper()
+
+    if source_unit == target_unit:
+        print("Source and target units are the same. No conversion needed.")
+        return
+
+    if source_unit == 'M' and target_unit == 'F':
+        result = meters_to_feet(value)
+        print(f"{value} meters is equal to {result:.2f} feet.")
+    elif source_unit == 'F' and target_unit == 'M':
+        result = feet_to_meters(value)
+        print(f"{value} feet is equal to {result:.2f} meters.")
+    else:
+        print("Unsupported units. Please choose either meters (M) or feet (F).")
+
+# Run the length converter
+length_converter()
